@@ -1,10 +1,20 @@
+const Database = require('../database');
+
 class Users {
-  constructor(params) {
-    this.params = params;
+  constructor(req, res) {
+    this.database = Database;
+    this.req = req;
+    this.res = res;
+    this.params = req.params;
   }
   
-  response() {
-    return { 'id': this.params.userId };
+  run() {
+    if (this.params.userId) {
+      return { 'id': this.params.userId };
+    }
+    else {
+      return { 'id': [1, 2, 3, 4, 5] };
+    }
   }
 }
 

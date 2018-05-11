@@ -1,13 +1,17 @@
-'use strict'
+const Database = require('../database');
 
 class Books {
-  constructor(params) {
-    this.params = params;
-    this.books = [ { 'title': 'A Tale of Two Cities' }, { 'title': 'The Mysterious Island' }, { 'title': 'A Brave New World' }];
+  constructor(req, res) {
+    this.database = Database;
+    this.req = req;
+    this.res = res;
+    this.params = req.params;
   }
   
-  response() {
-    return this.books;
+  run() {
+    this.database.mongo.db('shanaapp').collection("books").find().toArray((err, result) => {
+      this.res.json(result);
+    });
   }
 }
 

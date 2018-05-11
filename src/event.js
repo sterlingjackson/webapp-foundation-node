@@ -1,12 +1,15 @@
-'use strict'
+const Database = require('../database');
 
 class Event {
   constructor(params) {
-    this.params = params;
+    this.database = Database;
+    this.req = req;
+    this.res = res;
+    this.params = req.params;
   }
   
-  response() {
-    return { 'status': 'success' };
+  run() {
+    res.json({ 'status': 'success' });
   }
 }
 
