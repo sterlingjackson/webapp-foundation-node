@@ -1,8 +1,8 @@
 'use strict'
 
 class Hello {
-  constructor() {
-  
+  constructor(params) {
+    this.params = params;
   }
   
   response() {

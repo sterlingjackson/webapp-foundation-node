@@ -1,12 +1,12 @@
 'use strict'
 
 class Event {
-  constructor() {
-    this.books = '';
+  constructor(params) {
+    this.params = params;
   }
   
   response() {
-    return this.books;
+    return { 'status': 'success' };
   }
 }
 
